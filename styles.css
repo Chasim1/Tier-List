@@ -1,1 +1,63 @@
+.tier-row {
+	display: flex;
+  width:700px;
+  border-style: solid;
+ border-color: green;
+}
 
+.tier-label {
+ font-size: 80px;
+  width: 25%;
+	border: 1px solid;
+  text-align:center;
+}
+
+.tier-items {
+	display:flex;
+	width: 75%;
+	border: 1px solid;
+}
+div .s-tier{
+  background-color: red;
+  color: blue;
+  border-radius: 15px;
+}
+div .a-tier{
+  background-color: orange;
+  color: green;
+  border-radius: 15px;
+}
+div .b-tier{
+  background-color: yellow;
+  color: purple;
+  border-radius: 15px;
+}
+div .c-tier{
+  background-color: lightgreen;
+  color: pink;
+  border-radius: 15px;
+}
+div .d-tier{
+  background-color: green;
+  color: pink;
+  border-radius: 15px;
+}
+div .e-tier{
+  background-color: brown;
+  color: yellow;
+  border-radius: 15px;
+}
+body{
+  background-color: #010;
+}
+.title{
+  color:white;
+  text-align: center;
+}
+img{
+   height: 100px;      /* Adjust height to match your row size */
+  width: auto;        /* Maintains aspect ratio */
+  object-fit: cover;  /* Prevents stretching */
+  margin: 5px;        /* Adds space between items */
+  border-radius: 4px; /* Optional: rounds image corners */
+}
