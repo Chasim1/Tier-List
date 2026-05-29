@@ -1,63 +1,104 @@
+body {
+  background-color: #010;
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  color: white;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .tier-row {
-	display: flex;
-  width:700px;
-  border-style: solid;
- border-color: green;
+  display: flex;
+  width: 700px;
+  border: 2px solid green;
+  margin-bottom: 5px;
 }
 
 .tier-label {
- font-size: 80px;
+  font-size: 80px;
   width: 25%;
-	border: 1px solid;
-  text-align:center;
+  border: 1px solid black;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tier-items {
-	display:flex;
-	width: 75%;
-	border: 1px solid;
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+  min-height: 110px;
+  border: 1px solid white;
+  padding: 5px;
+  background-color: #222;
 }
-div .s-tier{
+
+.s-tier {
   background-color: red;
   color: blue;
   border-radius: 15px;
 }
-div .a-tier{
+
+.a-tier {
   background-color: orange;
   color: green;
   border-radius: 15px;
 }
-div .b-tier{
+
+.b-tier {
   background-color: yellow;
   color: purple;
   border-radius: 15px;
 }
-div .c-tier{
+
+.c-tier {
   background-color: lightgreen;
   color: pink;
   border-radius: 15px;
 }
-div .d-tier{
+
+.d-tier {
   background-color: green;
   color: pink;
   border-radius: 15px;
 }
-div .e-tier{
+
+.e-tier {
   background-color: brown;
   color: yellow;
   border-radius: 15px;
 }
-body{
-  background-color: #010;
+
+img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: grab;
 }
-.title{
-  color:white;
-  text-align: center;
+
+.image-pool {
+  width: 700px;
+  min-height: 120px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 2px dashed white;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #111;
 }
-img{
-   height: 100px;      /* Adjust height to match your row size */
-  width: auto;        /* Maintains aspect ratio */
-  object-fit: cover;  /* Prevents stretching */
-  margin: 5px;        /* Adds space between items */
-  border-radius: 4px; /* Optional: rounds image corners */
+
+button {
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
