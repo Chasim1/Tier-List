@@ -1,47 +1,64 @@
+// Runs when a drag starts on an image
 function dragStart(event) {
-  // Store the dragged element's ID
   event.dataTransfer.setData("text", event.target.id);
+
+  // Store the ID of the dragged element in the browser's drag data
+  // This is how we retrieve the element later in the drop function
 }
 
-// Allow an item to be dropped into a tier
+// Allows an element (tier or pool) to accept dropped items
 function allowDrop(event) {
-  event.preventDefault(); // Allow the drop
+  event.preventDefault();
 }
 
-// When an item is dropped into a tier
+// Runs when something is dropped into a tier or the image pool
 function drop(event) {
   event.preventDefault();
+
+   // Get the ID of the dragged image from drag data
   const data = event.dataTransfer.getData("text");
+
+  // Find the actual image element using that ID
   const draggedItem = document.getElementById(data);
-  
-  // Append the dragged item to the new tier
-  const targetTier = event.target.closest('.tier-items');
-  if (targetTier && targetTier !== draggedItem.parentElement) {
-    targetTier.appendChild(draggedItem);
+
+    // Find the closest valid drop zone:
+  // either a tier row OR the image pool
+  const dropZone = event.target.closest(".tier-items, .image-pool");
+
+  if (dropZone) {
+
+     // Move the image into the new container
+    // This is what "sticks" the image into the tier
+    dropZone.appendChild(draggedItem);
   }
 }
 
-// Reset all items back to their original container
-document.getElementById('reset').addEventListener('click', function() {
-  // Find all items (images) and move them back to the "container"
-  const allItems = document.querySelectorAll('.tier-items img');
-  const container = document.querySelector('.container');
-  
-  allItems.forEach(item => {
-    container.appendChild(item);  // Move back to the container
-  });
-});
-
-// Initialize draggable images and set event listeners
+// Initializes drag behavior for all images on the page
 function initDraggableItems() {
-  const images = document.querySelectorAll('.container img');
-  
+  const images = document.querySelectorAll("img");
+
   images.forEach((image, index) => {
-    image.setAttribute('draggable', true);
-    image.setAttribute('id', `image-${index + 1}`);  // Unique ID for each image
-    image.addEventListener('dragstart', dragStart);
+    image.draggable = true;
+
+ // Give each image a unique ID so we can track it during drag/drop
+    image.id = `image-${index}`;
+
+    image.addEventListener("dragstart", dragStart);
   });
 }
 
-// Call initDraggableItems to set up the initial state when the page loads
+// Reset button: sends all tier images back to the image pool
+document.getElementById("reset").addEventListener("click", () => {
+   
+  // Get the bottom image pool container
+  const imagePool = document.querySelector(".image-pool");
+
+  const allImages = document.querySelectorAll(".tier-items img");
+
+  allImages.forEach(image => {
+    imagePool.appendChild(image);
+  });
+});
+
+// Run setup once the page fully loads
 window.onload = initDraggableItems;
